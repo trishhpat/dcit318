@@ -1,41 +1,35 @@
-﻿public abstract class Shape
+﻿namespace MyProject
 {
-    public abstract void GetArea();
-    
-}
-
-public class Circle : Shape
-{
-    public override void GetArea()
+    public interface IMovable
     {
-        const double Pi = 3.14;
-        double radius = 7.0;
-        double Area;
-
-        Area = Pi * radius * radius;
+        public void Move();
     }
-}
 
-public class Rectangle : Shape
-{
-    public override void GetArea()
+    public class Car : IMovable
     {
-        double length = 4.4;
-        double width = 5.4;
-        double Area;
+        public void Move()
+        {
+            Console.WriteLine("Car is moving");
+        }
+    }
 
-        Area = length * width;
+    public class Bicycle : IMovable
+    {
+        public void Move()
+        {
+            Console.WriteLine("Bicycle is moving");
+        }
     }
 
     class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            Circle circle = new Circle();
-            circle.GetArea();
+            Car car = new Car();
+            car.Move();
 
-            Rectangle rectangle = new Rectangle();
-            rectangle.GetArea();
+            Bicycle bicycle = new Bicycle();
+            bicycle.Move();
         }
     }
 }
